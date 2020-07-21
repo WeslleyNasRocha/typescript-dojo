@@ -52,7 +52,7 @@ const FetchScreen: FunctionComponent<Props> = ({
   const [userId, setUserId] = useState<string>("");
   useEffect(() => {
     fetchAllPosts();
-  }, []);
+  }, [fetchAllPosts]);
   return (
     <Container maxWidth="sm">
       <Card>
