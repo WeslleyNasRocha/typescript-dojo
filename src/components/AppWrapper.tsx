@@ -14,6 +14,7 @@ import {
 } from "@material-ui/core";
 import MdChevronLeft from "@material-ui/icons/ChevronLeft";
 import IconCloudDownload from "@material-ui/icons/CloudDownload";
+import IconListAlt from "@material-ui/icons/ListAlt";
 import IconList from "@material-ui/icons/List";
 import MdMenu from "@material-ui/icons/Menu";
 import clsx from "clsx";
@@ -153,6 +154,17 @@ const AppWrapper: FunctionComponent<Props> = ({ children, navigator }) => {
                 <IconList />
               </ListItemIcon>
               <ListItemText primary="Todos" />
+            </ListItem>
+          </Link>
+          <Link to="/app/localTodo">
+            <ListItem
+              button
+              selected={navigator.location.pathname === "/app/localTodo"}
+            >
+              <ListItemIcon>
+                <IconListAlt />
+              </ListItemIcon>
+              <ListItemText primary="Local Todos" />
             </ListItem>
           </Link>
           <Link to="/app/fetch">

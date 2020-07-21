@@ -6,7 +6,7 @@ import {
   Container,
   Divider,
   makeStyles,
-  TextField,
+  TextField
 } from "@material-ui/core";
 import { bindActionCreators } from "@reduxjs/toolkit";
 import React, { FunctionComponent, useState } from "react";
@@ -87,8 +87,11 @@ export const TodoScreen: FunctionComponent<TodoProps> = (props) => {
               <TodoItem
                 key={todo.id}
                 data={todo}
-                onClick={(id) => {
+                onCheck={(id) => {
                   props.toggleTodo(id);
+                }}
+                onDelete={(id) => {
+                  props.deleteTodo(id);
                 }}
               />
             ))}

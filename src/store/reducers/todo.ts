@@ -9,20 +9,16 @@ export interface Todo {
 
 type TodoState = {
   loading: "idle" | "pending" | "error";
-  data: Todo[] | null;
+  data: Todo[];
   errors: { [x: string]: string };
 };
 
 const addTodoAsync = createAsyncThunk(
   "todo/createTodoAsync",
-  async (text: string, thunkApi) => {
+  async (text: string) => {
     await new Promise((r) => setTimeout(r, 2000));
     if (text) {
       return text;
-      // thunkApi.dispatch({
-      //   type: TodoSlice.actions.addTodo.type,
-      //   payload: text,
-      // });
     }
     throw new Error("Text must not be empty async");
   }
@@ -78,6 +74,9 @@ const TodoSlice = createSlice({
           return todo;
         });
       }
+    },
+    deleteTodo: (state, action: PayloadAction<string>) => {
+      state.data = state.data.filter((todo) => todo.id !== action.payload);
     },
   },
   extraReducers: {
