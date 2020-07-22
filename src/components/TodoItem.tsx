@@ -24,9 +24,9 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 interface TodoItemProps {
-    data: Todo;
-    onCheck: (id: string) => void;
-    onDelete: (id: string) => void;
+  data: Todo;
+  onCheck: (id: string) => void;
+  onDelete: (id: string) => void;
 }
 
 const TodoItem: FunctionComponent<TodoItemProps> = (props) => {
@@ -36,7 +36,7 @@ const TodoItem: FunctionComponent<TodoItemProps> = (props) => {
       <Grid
         item
         onClick={() => {
-            props.onCheck(props.data.id);
+          props.onCheck(props.data.id);
         }}
         xs={1}
         className={classes.checkbox}
@@ -44,12 +44,16 @@ const TodoItem: FunctionComponent<TodoItemProps> = (props) => {
         {props.data.completed ? <MdCheckBox /> : <MdCheckBoxOutlineBlank />}
       </Grid>
       <Grid item xs={10}>
-        <Typography>{props.data.text}</Typography>
+        <Typography
+          className={clsx(classes.text, { completed: props.data.completed })}
+        >
+          {props.data.text}
+        </Typography>
       </Grid>
       <Grid
         className={classes.trash}
         onClick={() => {
-            props.onDelete(props.data.id)
+          props.onDelete(props.data.id);
         }}
         item
         xs={1}
