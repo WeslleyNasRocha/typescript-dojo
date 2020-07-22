@@ -4,7 +4,7 @@ import MdCheckBoxOutlineBlank from "@material-ui/icons/CheckBoxOutlineBlank";
 import IconDelete from "@material-ui/icons/Delete";
 import clsx from "clsx";
 import React, { FunctionComponent } from "react";
-import { Todo } from "../screens/TodoLocalScreen";
+import { Todo } from "../utils/Types";
 
 const useStyles = makeStyles((theme) => ({
   checkbox: {

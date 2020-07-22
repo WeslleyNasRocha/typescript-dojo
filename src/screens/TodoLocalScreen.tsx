@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Container, Card, CardHeader, CardContent, TextField, Button, makeStyles, Divider } from "@material-ui/core";
 import TodoItem from "../components/TodoItem";
 import { generateId } from "../utils/generateId";
+import { Todo } from "../utils/Types";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -17,12 +18,6 @@ const useStyles = makeStyles((theme) => ({
         margin: theme.spacing(2, 2),
     },
 }));
-
-export type Todo = {
-    id: string;
-    text: string;
-    completed: boolean;
-}
 
 const TodoLocalScreen = () => {
     const [todos, setTodos] = useState<Array<Todo>>([]);
